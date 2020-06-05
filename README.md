@@ -1,37 +1,28 @@
 # immutable
 
-#### 介绍
-不变的数据一旦创建就无法更改，从而可以简化应用程序开发，进行防御性复制，并可以使用简单的逻辑实现高级的备忘和更改检测技术。持久数据提供了一个可变API，该API不会就地更新数据，而是始终产生新的更新数据。
+## 介绍
 
-#### 软件架构
-软件架构说明
+1. 使用简单的逻辑实现了一个 API，仅修改值时进行复制，最大限度地减少了复制或缓存数据的需求。
+2. 始终产生新的更新数据，不改变原有数据。
 
+## 软件原理
 
-#### 安装教程
+### 使用 Proxy 响应更新,仅 get 和 set 时浅克隆操作对象并赋值
 
-1.  xxxx
-2.  xxxx
-3.  xxxx
+1. 创建一个 Map 集合用来储存 target 和其真实地址
+2. 浅克隆目标对象为 real 对象
+3. 执行回调，实际监听 real 对象。
+4. 触发 get 时，将 val 与其真实地址储存，set 时会用到
+5. 将读取的值浅克隆并赋值，返回新的代理对象
+6. 触发 set 时，获取 target 的真实地址（target 的值不能直接赋值），若有：进行第 5 步，若没有：直接赋值
 
-#### 使用说明
+## 安装教程
 
-1.  xxxx
-2.  xxxx
-3.  xxxx
+1. xxxx
+2. xxxx
+3. xxxx
 
-#### 参与贡献
+## 使用说明
 
-1.  Fork 本仓库
-2.  新建 Feat_xxx 分支
-3.  提交代码
-4.  新建 Pull Request
-
-
-#### 码云特技
-
-1.  使用 Readme\_XXX.md 来支持不同的语言，例如 Readme\_en.md, Readme\_zh.md
-2.  码云官方博客 [blog.gitee.com](https://blog.gitee.com)
-3.  你可以 [https://gitee.com/explore](https://gitee.com/explore) 这个地址来了解码云上的优秀开源项目
-4.  [GVP](https://gitee.com/gvp) 全称是码云最有价值开源项目，是码云综合评定出的优秀开源项目
-5.  码云官方提供的使用手册 [https://gitee.com/help](https://gitee.com/help)
-6.  码云封面人物是一档用来展示码云会员风采的栏目 [https://gitee.com/gitee-stars/](https://gitee.com/gitee-stars/)
+1. 当前版本对象容器仅支持 Array,Set,Map,Object 类型
+2. 回调函数内的取值,赋值均为直接复制，没有引用关系

@@ -1,36 +1,37 @@
 # immutable
 
-#### Description
-不变的数据一旦创建就无法更改，从而可以简化应用程序开发，进行防御性复制，并可以使用简单的逻辑实现高级的备忘和更改检测技术。持久数据提供了一个可变API，该API不会就地更新数据，而是始终产生新的更新数据。
+## Introduction
 
-#### Software Architecture
-Software architecture description
+1. A simple logic is used to implement an API to copy only when modifying values, which minimizes the need to copy or cache data.
 
-#### Installation
+2. Always generate new updated data without changing the original data.
 
-1.  xxxx
-2.  xxxx
-3.  xxxx
+## Software principle
 
-#### Instructions
+### Use proxy response to update, only get and set time shallow clone operands and assign values
 
-1.  xxxx
-2.  xxxx
-3.  xxxx
+1. Create a map set to store target and its real address
 
-#### Contribution
+2. Shallow clone target object is real object
 
-1.  Fork the repository
-2.  Create Feat_xxx branch
-3.  Commit your code
-4.  Create Pull Request
+3. Execute the callback and actually listen to the real object.
 
+4. When the get is triggered, the Val and its real address are stored, which is used in the set
 
-#### Gitee Feature
+5. Shallow clone and assign the read value, and return the new proxy object
 
-1.  You can use Readme\_XXX.md to support different languages, such as Readme\_en.md, Readme\_zh.md
-2.  Gitee blog [blog.gitee.com](https://blog.gitee.com)
-3.  Explore open source project [https://gitee.com/explore](https://gitee.com/explore)
-4.  The most valuable open source project [GVP](https://gitee.com/gvp)
-5.  The manual of Gitee [https://gitee.com/help](https://gitee.com/help)
-6.  The most popular members  [https://gitee.com/gitee-stars/](https://gitee.com/gitee-stars/)
+6. When the set is triggered, obtain the real address of the target (the value of the target cannot be assigned directly). If there is: go to step 5, if there is no: assign directly
+
+## Installation tutorial
+
+1. xxxx
+
+2. xxxx
+
+3. xxxx
+
+## Instructions for use
+
+1. The current version of object container only supports array, set, map and object types
+
+2. The values and assignments in the callback function are all directly copied and have no reference relationship
