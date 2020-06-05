@@ -1,7 +1,7 @@
 {
     "name": "@personal_simple_code/immutable",
-    "version": "1.0.0",
-    "description": "不变的数据一旦创建就无法更改，从而可以简化应用程序开发，进行防御性复制，并可以使用简单的逻辑实现高级的备忘和更改检测技术。持久数据提供了一个可变API，该API不会就地更新数据，而是始终产生新的更新数据。",
+    "version": "1.0.1",
+    "description": "A simple logic is used to implement an API to copy only when modifying values, which minimizes the need to copy or cache data.",
     "main": "./dist/index.js",
     "scripts": {
         "start": "ts-node ./lib/index",
