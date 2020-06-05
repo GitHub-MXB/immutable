@@ -1,9 +1,13 @@
 /**
- * 浅复制一个对象，目前仅可处理普通对象和数组
+ * 浅复制一个对象，当前版本对象容器仅支持 Array,Set,Map,Object 类型
  * @param target 目标对象
  */
-let assign = (target: any[] | object): object | any[] =>
-    target instanceof Array ? target.concat() : Object.assign({}, target)
+let assign = (target: any[] | object): object | any[] => {
+    if (target instanceof Array) return target.concat()
+    if (target instanceof Map) return new Map(target)
+    if (target instanceof Set) return new Set(target)
+    return Object.assign({}, Object(target))
+}
 
 type mapType<T> = Map<any, { parent: T; key: string | number | symbol }>
 
