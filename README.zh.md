@@ -18,9 +18,49 @@
 
 ## 安装教程
 
-1. xxxx
-2. xxxx
-3. xxxx
+```
+import deepClone from "@personal_simple_code/immutable"
+
+let obj = {
+    a: [1, 2, 3, 4, 5],
+    b: { c: [123] },
+    d: new Map(),
+    e: new Set(),
+}
+let a = deepClone(obj, (x) => {
+    x.a = [0, 0, 0]
+    x.a[0] = 100
+    x.a[1]++
+    x.a[0] += x.a[1] + 100
+
+    x.a.push(0)
+    x.d.set("a", {
+        a: 100,
+    })
+    x.e.add(1089)
+    x.e.add(x.d.get("a"))
+    x["f"] = {
+        a: x.e,
+    }
+})
+
+console.error(`原始值:`, obj)
+console.error(`结果:`, a)
+
+```
+
+## 结果
+
+```
+原始值: { a: [ 1, 2, 3, 4, 5 ], b: { c: [ 123 ] }, d: Map {}, e: Set {} }
+结果: {
+  a: [ 201, 1, 0, 0 ],
+  b: { c: [ 123 ] },
+  d: Map { 'a' => { a: 100 } },
+  e: Set { 1089, { a: 100 } },
+  f: { a: Set { 1089, [Object] } }
+}
+```
 
 ## 使用说明
 

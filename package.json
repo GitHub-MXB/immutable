@@ -1,10 +1,9 @@
 {
     "name": "@personal_simple_code/immutable",
-    "version": "0.1.3",
+    "version": "1.0.0",
     "description": "不变的数据一旦创建就无法更改，从而可以简化应用程序开发，进行防御性复制，并可以使用简单的逻辑实现高级的备忘和更改检测技术。持久数据提供了一个可变API，该API不会就地更新数据，而是始终产生新的更新数据。",
     "main": "./dist/index.js",
     "scripts": {
-        "test": "mocha --reporter spec",
         "start": "ts-node ./lib/index",
         "tsc": "tsc"
     },
