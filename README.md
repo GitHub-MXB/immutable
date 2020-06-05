@@ -1,28 +1,37 @@
 # immutable
 
-## 介绍
+## Introduction
 
-1. 使用简单的逻辑实现了一个 API，仅修改值时进行复制，最大限度地减少了复制或缓存数据的需求。
-2. 始终产生新的更新数据，不改变原有数据。
+1. A simple logic is used to implement an API to copy only when modifying values, which minimizes the need to copy or cache data.
 
-## 软件原理
+2. Always generate new updated data without changing the original data.
 
-### 使用 Proxy 响应更新,仅 get 和 set 时浅克隆操作对象并赋值
+## Software principle
 
-1. 创建一个 Map 集合用来储存 target 和其真实地址
-2. 浅克隆目标对象为 real 对象
-3. 执行回调，实际监听 real 对象。
-4. 触发 get 时，将 val 与其真实地址储存，set 时会用到
-5. 将读取的值浅克隆并赋值，返回新的代理对象
-6. 触发 set 时，获取 target 的真实地址（target 的值不能直接赋值），若有：进行第 5 步，若没有：直接赋值
+### Use proxy response to update, only get and set time shallow clone operands and assign values
 
-## 安装教程
+1. Create a map set to store target and its real address
+
+2. Shallow clone target object is real object
+
+3. Execute the callback and actually listen to the real object.
+
+4. When the get is triggered, the Val and its real address are stored, which is used in the set
+
+5. Shallow clone and assign the read value, and return the new proxy object
+
+6. When the set is triggered, obtain the real address of the target (the value of the target cannot be assigned directly). If there is: go to step 5, if there is no: assign directly
+
+## Installation tutorial
 
 1. xxxx
+
 2. xxxx
+
 3. xxxx
 
-## 使用说明
+## Instructions for use
 
-1. 当前版本对象容器仅支持 Array,Set,Map,Object 类型
-2. 回调函数内的取值,赋值均为直接复制，没有引用关系
+1. The current version of object container only supports array, set, map and object types
+
+2. The values and assignments in the callback function are all directly copied and have no reference relationship
