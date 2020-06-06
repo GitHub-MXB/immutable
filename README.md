@@ -6,6 +6,8 @@
 
 2. Always generate new updated data without changing the original data.
 
+3. [https://github.com/GitHub-MXB/immutable](https://github.com/GitHub-MXB/immutable)
+
 ## Software principle
 
 ### Use proxy response to update, only get and set time shallow clone operands and assign values

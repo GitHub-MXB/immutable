@@ -4,6 +4,7 @@
 
 1. 使用简单的逻辑实现了一个 API，仅修改值时进行复制，最大限度地减少了复制或缓存数据的需求。
 2. 始终产生新的更新数据，不改变原有数据。
+3. [https://github.com/GitHub-MXB/immutable](https://github.com/GitHub-MXB/immutable)
 
 ## 软件原理
 

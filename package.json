@@ -1,6 +1,6 @@
 {
     "name": "@personal_simple_code/immutable",
-    "version": "1.0.2",
+    "version": "1.0.3",
     "description": "A simple logic is used to implement an API to copy only when modifying values, which minimizes the need to copy or cache data.",
     "main": "./dist/index.js",
     "scripts": {
